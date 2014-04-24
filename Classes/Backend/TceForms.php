@@ -38,8 +38,8 @@ class Tx_RssDisplay_Backend_TceForms {
 
 
 		#/** @var $objectManager \TYPO3\CMS\Extbase\Object\ObjectManager */
-		#$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
-		$objectManager = t3lib_div::makeInstance('Tx_Extbase_Object_Manager');
+		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
+		#$objectManager = t3lib_div::makeInstance('Tx_Extbase_Object_Manager');
 
 		/** @var Tx_Extbase_Configuration_BackendConfigurationManager $configurationManager */
 		$configurationManager = $objectManager->get('Tx_Extbase_Configuration_BackendConfigurationManager');
@@ -85,7 +85,9 @@ class Tx_RssDisplay_Backend_TceForms {
 	protected function getPluginConfiguration(array $setup, $extensionName) {
 		$pluginConfiguration = array();
 		if (is_array($setup['plugin.']['tx_' . strtolower($extensionName) . '.'])) {
-			$pluginConfiguration = Tx_Extbase_Utility_TypoScript::convertTypoScriptArrayToPlainArray($setup['plugin.']['tx_' . strtolower($extensionName) . '.']);
+			$typoScriptService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Service\\TypoScriptService');
+			$pluginConfiguration = $typoScriptService->convertTypoScriptArrayToPlainArray($setup['plugin.']['tx_' . strtolower($extensionName) . '.']);
+
 		}
 		return $pluginConfiguration;
 	}
