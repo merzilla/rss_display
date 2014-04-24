@@ -39,7 +39,6 @@ class Tx_RssDisplay_Backend_TceForms {
 
 		#/** @var $objectManager \TYPO3\CMS\Extbase\Object\ObjectManager */
 		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
-		#$objectManager = t3lib_div::makeInstance('Tx_Extbase_Object_Manager');
 
 		/** @var Tx_Extbase_Configuration_BackendConfigurationManager $configurationManager */
 		$configurationManager = $objectManager->get('Tx_Extbase_Configuration_BackendConfigurationManager');
