@@ -7,32 +7,33 @@
 <f:layout name="Default"/>
 
 <f:section name="content">
-	<h2>
-		<a href="{titleLink}" target='_blank'>{title}</a>
-	</h2>
-
-	<ul class="tx-rssdisplay-list">
 		<f:for each="{items}" as="item">
-			<li class="tx-rssdisplay-item">
-				<span class="tx-rssdisplay-item-title">
-					<f:if condition="{feed:item.link()}">
-						<f:then>
-							<f:link.external uri="{feed:item.link()}">
+			<div class="span4">
+				<div class="article default sony-carousel-slide-children">
+
+					<div class="img-container">
+						<p class="l3-light">
+							<f:format.date format="m.d.Y"><feed:item.date/></f:format.date>
+						</p>
+					</div>
+					<div class="tcc-copy">
+						<p class="p2">
+							<strong>
 								<feed:item.title/>
+							</strong>
+						</p>
+						<p class="p4">
+							<f:format.crop maxCharacters="150">
+								<feed:item.description/>
+							</f:format.crop>
+						</p>
+						<p class="lt3">
+							<f:link.external uri="{feed:item.link()}">
+								<f:translate key="LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:more" />
 							</f:link.external>
-						</f:then>
-						<f:else>
-							<feed:item.title/>
-						</f:else>
-					</f:if>
-				</span>
-
-				<p class="tx-rssdisplay-item-description">
-					<feed:item.content/>
-				</p>
-			</li>
+						</p>
+					</div>
+				</div>
+			</div>
 		</f:for>
-	</ul>
 </f:section>
-
-</html>
