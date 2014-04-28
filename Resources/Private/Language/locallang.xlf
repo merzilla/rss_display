@@ -6,6 +6,16 @@
 			<trans-unit id="more" xml:space="preserve">
 				<source>Read More</source>
 			</trans-unit>
+			<trans-unit id="latest" xml:space="preserve">
+				<source>Latest</source>
+			</trans-unit>
+			<trans-unit id="sonyBlog" xml:space="preserve">
+				<source>Sony Entertainment Network Blog</source>
+			</trans-unit>
+			<trans-unit id="playStation" xml:space="preserve">
+				<source>PlayStation® Blog</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

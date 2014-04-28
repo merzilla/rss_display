@@ -2,6 +2,12 @@
 plugin.tx_rssdisplay {
 	settings {
 
+
+		links{
+			sonyBlogLink = http://www.aoe.com
+			playStation =  http://www.aoe.com
+		}
+
 		cacheDuration = 3600
 
 		templates {

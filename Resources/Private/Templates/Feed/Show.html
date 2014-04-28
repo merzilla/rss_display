@@ -7,33 +7,42 @@
 <f:layout name="Default"/>
 
 <f:section name="content">
+		<h3 class="fs-m fw-bold"><f:translate key="LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:latest" /></h3>
+		<span class="section-links">
+			<a href="{settings.links.sonyBlogLink}" target="_blank">
+				<f:translate key="LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:sonyBlog" />
+			</a>&nbsp;|
+			<a href="{settings.links.playStation}" target="_blank">
+				<f:translate key="LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:playStation" />
+			</a>
+		</span>
 		<f:for each="{items}" as="item">
-			<div class="span4">
-				<div class="article default sony-carousel-slide-children">
-
-					<div class="img-container">
-						<p class="l3-light">
-							<f:format.date format="m.d.Y"><feed:item.date/></f:format.date>
-						</p>
-					</div>
-					<div class="tcc-copy">
-						<p class="p2">
-							<strong>
-								<feed:item.title/>
-							</strong>
-						</p>
-						<p class="p4">
-							<f:format.crop maxCharacters="150">
-								<feed:item.description/>
-							</f:format.crop>
-						</p>
-						<p class="lt3">
-							<f:link.external uri="{feed:item.link()}">
-								<f:translate key="LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:more" />
-							</f:link.external>
-						</p>
-					</div>
-				</div>
+			<div class="span4 news-item js-transform-to-slide" >
+				<img alt="article default image alt text"
+					 data-src-desktop="<feed:item.image/>"
+					 data-src-tablet="<feed:item.image/>"
+					 data-src-phone="<feed:item.image/>"
+					 data-src-desktop-highres="<feed:item.image/>"
+					 data-src-tablet-highres="<feed:item.image/>"
+					 data-src-phone-highres="<feed:item.image/>"
+					 class="news-image iq-img"
+					 style="zoom: 1; -webkit-transition: opacity 0.4s ease-out; transition: opacity 0.4s ease-out;"
+					 src="<feed:item.image/>"
+				>
+				<noscript><img src="<feed:item.image/>" alt="" class="news-image"/></noscript>
+				<h4 class="news-title">
+					<feed:item.title/>
+				</h4>
+				<p class="news-excerpt">
+					<f:format.crop maxCharacters="150">
+						<feed:item.description/>
+					</f:format.crop>
+				</p>
+				<p>
+					<f:link.external uri="{feed:item.link()}" class="readmore" target="_blank">
+						<f:translate key="LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:more" />
+					</f:link.external>
+				</p>
 			</div>
 		</f:for>
 </f:section>
