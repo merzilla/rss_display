@@ -18,18 +18,20 @@
 		</span>
 		<f:for each="{items}" as="item">
 			<div class="span4 news-item js-transform-to-slide" >
-				<img alt="article default image alt text"
-					 data-src-desktop="<feed:item.image/>"
-					 data-src-tablet="<feed:item.image/>"
-					 data-src-phone="<feed:item.image/>"
-					 data-src-desktop-highres="<feed:item.image/>"
-					 data-src-tablet-highres="<feed:item.image/>"
-					 data-src-phone-highres="<feed:item.image/>"
-					 class="news-image iq-img"
-					 style="zoom: 1; -webkit-transition: opacity 0.4s ease-out; transition: opacity 0.4s ease-out;"
-					 src="<feed:item.image/>"
-				>
-				<noscript><img src="<feed:item.image/>" alt="" class="news-image"/></noscript>
+				<div class="img_wrap" style="width: 317px;height: 120px; position: relative;margin-bottom: 15px;">
+					<img alt="article default image alt text"
+						 data-src-desktop="<feed:item.image/>"
+						 data-src-tablet="<feed:item.image/>"
+						 data-src-phone="<feed:item.image/>"
+						 data-src-desktop-highres="<feed:item.image/>"
+						 data-src-tablet-highres="<feed:item.image/>"
+						 data-src-phone-highres="<feed:item.image/>"
+						 class="news-image iq-img"
+						 style="background-size: cover;height: 123px;background-position: 0 0;background-repeat: no-repeat;background-size: cover;position: relative;"
+						 src="<feed:item.image/>"
+					>
+					<noscript><img src="<feed:item.image/>" alt="" class="news-image"/></noscript>
+				</div>
 				<h4 class="news-title">
 					<feed:item.title/>
 				</h4>
