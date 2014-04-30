@@ -7,17 +7,7 @@
 <f:layout name="Default"/>
 
 <f:section name="content">
-		<h3 class="fs-m fw-bold"><f:translate key="LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:latest" /></h3>
-		<span class="section-links">
-			<a href="{settings.links.sonyBlogLink}" target="_blank">
-				<f:translate key="LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:sonyBlog" />
-			</a>&nbsp;|
-			<a href="{settings.links.playStation}" target="_blank">
-				<f:translate key="LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:playStation" />
-			</a>
-		</span>
 		<f:for each="{items}" as="item">
-			<div class="span4 news-item js-transform-to-slide" >
 				<div class="img_wrap" style="width: 317px;height: 120px; position: relative;margin-bottom: 15px;">
 					<img alt="article default image alt text"
 						 data-src-desktop="<feed:item.image/>"
@@ -45,6 +35,5 @@
 						<f:translate key="LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:more" />
 					</f:link.external>
 				</p>
-			</div>
 		</f:for>
 </f:section>
