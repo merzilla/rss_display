@@ -102,6 +102,10 @@ class SimplePie_Cache_File implements SimplePie_Cache_Base
 	 */
 	public function save($data)
 	{
+		if (!file_exists($this->location)) {
+			mkdir($this->location, 0775);
+		}
+
 		if (file_exists($this->name) && is_writeable($this->name) || file_exists($this->location) && is_writeable($this->location))
 		{
 			if ($data instanceof SimplePie)
@@ -110,6 +114,7 @@ class SimplePie_Cache_File implements SimplePie_Cache_Base
 			}
 
 			$data = serialize($data);
+
 			return (bool) file_put_contents($this->name, $data);
 		}
 		return false;
