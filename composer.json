@@ -1,5 +1,27 @@
 {
-    "name": "typo3cms/rss_display",
+    "name": "merzilla/rss-display",
     "description": "Fetch a RSS / Atom Feed and display its content on the Frontend.",
-    "type": "typo3-cms-extension"
+    "type": "typo3-cms-extension",
+    "require": {
+        "typo3/cms": ">= 7.6",
+        "php": "^7.0"
+    },
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Fabien Udriot",
+            "email": "fabien.udriot@ecodev.ch"
+        },
+        {
+            "name": "Ralf Merz",
+            "email": "r.merz@plan-net.ch"
+        }
+    ],
+    "replace": {
+        "rss_display": "self.version",
+        "typo3-ter/rss-display": "self.version"
+    },
+    "autoload": {
+        "classmap": ["Classes/"]
+    }
 }
