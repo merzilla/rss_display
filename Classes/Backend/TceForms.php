@@ -41,7 +41,7 @@ class Tx_RssDisplay_Backend_TceForms {
 		if ($this->isVersionHigherOrEqualToVersionSix()) {
 			$objectManager = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
 		} else {
-			$objectManager = t3lib_div::makeInstance('Tx_Extbase_Object_Manager');
+			$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Extbase_Object_Manager');
 		}
 
 		/** @var Tx_Extbase_Configuration_BackendConfigurationManager $configurationManager */
@@ -55,7 +55,7 @@ class Tx_RssDisplay_Backend_TceForms {
 
 			$selectedItem = '';
 			if (!empty($params['row']['pi_flexform'])) {
-				$values = t3lib_div::xml2array($params['row']['pi_flexform']);
+				$values = \TYPO3\CMS\Core\Utility\GeneralUtility::xml2array($params['row']['pi_flexform']);
 				if (!empty($values['data']['sDEF']['lDEF']['settings.template'])) {
 					$selectedItem = $values['data']['sDEF']['lDEF']['settings.template']['vDEF'];
 				}

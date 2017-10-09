@@ -59,7 +59,7 @@ class Tx_RssDisplay_Controller_FeedController extends Tx_Extbase_MVC_Controller_
 		// @todo !! useful feature: add check if the Feed URL is alive. If not log it and send an email to the webmaster.
 
 		// Configure the template path dynamically
-		$pathAbs = t3lib_div::getFileAbsFileName($this->settings['template']);
+		$pathAbs = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($this->settings['template']);
 		$this->view->setTemplatePathAndFilename($pathAbs);
 
 		if ($this->canFetchResultFromCache()) {
@@ -106,7 +106,7 @@ class Tx_RssDisplay_Controller_FeedController extends Tx_Extbase_MVC_Controller_
 		$result = FALSE;
 		if ($this->getPluginType() === self::PLUGIN_TYPE_USER_INT
 			&& $this->getCacheInstance()->has($this->getCacheIdentifier())
-			&& ! t3lib_div::_GET('no_cache')) {
+			&& ! \TYPO3\CMS\Core\Utility\GeneralUtility::_GET('no_cache')) {
 			$result = TRUE;
 		}
 		return $result;

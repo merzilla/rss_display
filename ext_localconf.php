@@ -36,7 +36,7 @@ $TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearAllCache_a
 if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations'][$cacheName]['frontend'])) {
     $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations'][$cacheName]['frontend'] = 't3lib_cache_frontend_StringFrontend';
 }
-if (t3lib_div::int_from_ver(TYPO3_version) < '4006000') {
+if (\TYPO3\CMS\Core\Utility\GeneralUtility::int_from_ver(TYPO3_version) < '4006000') {
     // Define database backend as backend for 4.5 and below (default in 4.6)
     if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations'][$cacheName]['backend'])) {
         $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations'][$cacheName]['backend'] = 't3lib_cache_backend_DbBackend';
@@ -63,7 +63,7 @@ spl_autoload_register(function ($class) {
 	}
 
 	require sprintf('%sResources/Private/PHP/SimplePie/%s',
-		t3lib_extMgm::extPath('rss_display'),
+		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('rss_display'),
 		DIRECTORY_SEPARATOR . str_replace('_', DIRECTORY_SEPARATOR, $class) . '.php'
 	);
 });
