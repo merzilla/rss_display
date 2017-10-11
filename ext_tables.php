@@ -8,7 +8,7 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature]='pi_fl
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForm/feed.xml');
 
-Tx_Extbase_Utility_Extension::registerPlugin(
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	$_EXTKEY,
 	'Pi1',
 	'Fetch and display a RSS feed'

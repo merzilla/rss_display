@@ -14,7 +14,7 @@ if (!empty($configuration['plugin_type'])) {
 }
 
 // Configure Extbase plugin
-Tx_Extbase_Utility_Extension::configurePlugin(
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
 	$_EXTKEY,
 	'Pi1',
 	array('Feed' => 'show'),
@@ -24,19 +24,19 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 // Register cache 'cache_rssdisplay'
 $cacheName = 'cache_rssdisplay';
 
-if (!is_array($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations'][$cacheName])) {
-    $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations'][$cacheName] = array();
+if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$cacheName])) {
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$cacheName] = array();
 }
 
 // Register the cache table to be deleted when all caches are cleared
-$TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearAllCache_additionalTables']['tx_rssdisplay_cache'] = 'tx_rssdisplay_cache';
+//$TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearAllCache_additionalTables']['tx_rssdisplay_cache'] = 'tx_rssdisplay_cache';
 
 // Define string frontend as default frontend, this must be set with TYPO3 4.5 and below
 // and overrides the default variable frontend of 4.6
 if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations'][$cacheName]['frontend'])) {
-    $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations'][$cacheName]['frontend'] = 't3lib_cache_frontend_StringFrontend';
+    $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations'][$cacheName]['frontend'] = \TYPO3\CMS\Core\Cache\Frontend\StringFrontend::class;
 }
-if (\TYPO3\CMS\Core\Utility\GeneralUtility::int_from_ver(TYPO3_version) < '4006000') {
+if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < '4006000') {
     // Define database backend as backend for 4.5 and below (default in 4.6)
     if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations'][$cacheName]['backend'])) {
         $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations'][$cacheName]['backend'] = 't3lib_cache_backend_DbBackend';
